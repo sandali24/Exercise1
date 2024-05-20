@@ -9,7 +9,7 @@
     <div class="container mt-5">
         <h2 class="mb-4">Loan Details</h2>
 
-        <?php if($loan) { ?>
+        <?php if ($loan) { ?>
             <table class="table table-bordered">
                 <tr>
                     <th>Loan Code</th>
@@ -44,6 +44,28 @@
                     <td><?php echo $loan->loan_status; ?></td>
                 </tr>
             </table>
+
+            <h3 class="mt-5">Loan Schedule</h3>
+            <table class="table table-bordered table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Due Date</th>
+                        <th>Capital Amount</th>
+                        <th>Interest Amount</th>
+                        <th>Total Installment</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($schedule as $sch): ?>
+                        <tr>
+                            <td><?= $sch->deu_date ?></td>
+                            <td><?= $sch->cap_amount ?></td>
+                            <td><?= $sch->int_amount ?></td>
+                            <td><?= $sch->tot_instalment ?></td>
+                        </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
         <?php } else { ?>
             <div class="alert alert-warning" role="alert">
                 No loan details found.
@@ -57,5 +79,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
+
 
 

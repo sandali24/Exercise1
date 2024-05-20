@@ -42,6 +42,7 @@ class Crud extends CI_Controller
     public function viewLoanDetails($loan_code)
     {
         $data['loan'] = $this->Crud_model->getLoanDetails($loan_code);
+		$data['schedule'] = $this->Crud_model->getLoanSchedule($loan_code);
         $this->load->view('loan_details', $data);
     }
 }

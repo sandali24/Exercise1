@@ -77,5 +77,12 @@ class Crud_model extends CI_Model
         return $query->result();
     }
 
+    public function getLoanSchedule($loan_code)
+    {
+        $this->db->where('loan_code', $loan_code);
+        $query = $this->db->get('re_eploanshedule');
+        return $query->result();
+    }
+
 } 
 ?>
